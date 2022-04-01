@@ -24,3 +24,10 @@ function playRound(playerSelection, computerSelection) {
         return "You Lose! " + computerSelection + " beats " + playerUpperCase + "!"
     }
 }
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("Your move: rock, paper or scissors?")
+        console.log(playRound(playerSelection, computerPlay()));
+    }
+}
