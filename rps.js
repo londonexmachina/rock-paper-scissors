@@ -14,7 +14,7 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
     let playerUpperCase = playerSelection.charAt(0).toUpperCase() + 
-    playerSelection.slice(1).toLowerCase();
+            playerSelection.slice(1).toLowerCase();
     if (playerUpperCase === computerSelection) {
         return "Draw!"
     } else if (playerUpperCase === "Rock" && computerSelection === "Scissors" ||
