@@ -1,5 +1,4 @@
 function playRound(playerSelection) {
-    //let playerSelection = "Rock";
     let computerSelection = computerPlay();
     if (playerSelection === computerSelection) {
         console.log("Draw!");
@@ -26,6 +25,8 @@ function computerPlay() {
     }
 }
 
+const rock = document.getElementById("Rock");
+rock.addEventListener("click", (evt) => playRound("Rock"));
 
 //document.getElementById("myBtn").addEventListener("click", playRound);
 
