@@ -1,3 +1,17 @@
+function playRound() {
+    let playerSelection = "Rock";
+    let computerSelection = computerPlay();
+    if (playerSelection === computerSelection) {
+        console.log("Draw!");
+    } else if (playerSelection === "Rock" && computerSelection === "Scissors" ||
+               playerSelection === "Paper" && computerSelection === "Rock" || 
+               playerSelection === "Scissors" && computerSelection === "Paper") {
+        console.log("You Win! " + playerSelection + " beats " + computerSelection + "!");
+    } else {
+        console.log("You Lose! " + computerSelection + " beats " + playerSelection + "!");
+    }
+}
+
 function computerPlay() {
     let randomNum = Math.floor(Math.random() * 3) + 1;
     switch (randomNum) {
@@ -12,23 +26,11 @@ function computerPlay() {
     }
 }
 
-function playRound(playerSelection, computerSelection) {
-    let playerUpperCase = playerSelection.charAt(0).toUpperCase() + 
-            playerSelection.slice(1).toLowerCase();
-    if (playerUpperCase === computerSelection) {
-        return "Draw!"
-    } else if (playerUpperCase === "Rock" && computerSelection === "Scissors" ||
-               playerUpperCase === "Paper" && computerSelection === "Rock" || 
-               playerUpperCase === "Scissors" && computerSelection === "Paper") {
-        return "You Win! " + playerUpperCase + " beats " + computerSelection + "!"
-    } else {
-        return "You Lose! " + computerSelection + " beats " + playerUpperCase + "!"
-    }
-}
+document.getElementById("myBtn").addEventListener("click", playRound);
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Your move: rock, paper or scissors?")
-        console.log(playRound(playerSelection, computerPlay()));
-    }
-}
+//function game() {
+//    for (let i = 0; i < 5; i++) {
+//        let playerSelection = prompt("Your move: rock, paper or scissors?")
+//        console.log(playRound(playerSelection, computerPlay()));
+//    }
+//}
