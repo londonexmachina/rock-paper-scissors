@@ -28,10 +28,20 @@ function playRound(playerSelection) {
         document.getElementsByClassName("results")[0].textContent = "You lose " + computerSelection + " beats " + playerSelection + "!";
         computerScore++;
     }
+    score(computerScore, playerScore);
+}
+
+function score(computerScore, playerScore) {
+    if (computerScore == 5) {
+        document.getElementsByClassName("winner")[0].textContent = "Computer wins!";
+    } else if (playerScore == 5) {
+        document.getElementsByClassName("winner")[0].textContent = "Player wins";
+    }
 }
 
 function resetAll() {
     document.getElementsByClassName("results")[0].textContent = '';
+    document.getElementsByClassName("winner")[0].textContent = '';
 }
 
 const rock = document.getElementById("Rock");
