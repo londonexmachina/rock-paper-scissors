@@ -22,20 +22,26 @@ function playRound(playerSelection) {
     } else if (playerSelection === "Rock" && computerSelection === "Scissors" ||
                playerSelection === "Paper" && computerSelection === "Rock" || 
                playerSelection === "Scissors" && computerSelection === "Paper") {
-        document.getElementsByClassName("results")[0].textContent = "You win! " + playerSelection + " beats " + computerSelection + "!";
-        playerScore++;
+            document.getElementsByClassName("results")[0].textContent = "You win! " + playerSelection + " beats " + computerSelection + "!";
+            playerScore++;
     } else {
         document.getElementsByClassName("results")[0].textContent = "You lose " + computerSelection + " beats " + playerSelection + "!";
         computerScore++;
     }
-    score(computerScore, playerScore);
+    roundResult(computerScore, playerScore);
+    scores(computerScore, playerScore);
 }
 
-function score(computerScore, playerScore) {
+function scores(computerScore, playerScore) {
+    document.getElementsByClassName("wins")[0].textContent = "Won: " + playerScore;
+    document.getElementsByClassName("losses")[0].textContent = "Lost: " + computerScore;
+}
+
+function roundResult(computerScore, playerScore) {
     if (computerScore == 5) {
         document.getElementsByClassName("winner")[0].textContent = "Computer wins!";
     } else if (playerScore == 5) {
-        document.getElementsByClassName("winner")[0].textContent = "Player wins";
+        document.getElementsByClassName("winner")[0].textContent = "Player wins!";
     }
 }
 
