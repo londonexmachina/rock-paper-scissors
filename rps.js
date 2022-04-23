@@ -12,24 +12,41 @@ function computerPlay() {
     }
 }
 
+function resetAll(computerScore, playerScore) {
+    if (computerScore == 6) {
+        computerScore = 1;
+        playerScore = 0;
+        document.getElementsByClassName("results")[0].textContent = '';
+        document.getElementsByClassName("winner")[0].textContent = '';
+    } else if (playerScore == 6) {
+        playerScore = 1;
+        computerScore = 0;
+        document.getElementsByClassName("results")[0].textContent = '';
+        document.getElementsByClassName("winner")[0].textContent = '';
+    } else {
+        //do nothing
+    }
+}
+
 let computerScore = 0;
 let playerScore = 0;
 
 function playRound(playerSelection) {
     let computerSelection = computerPlay();
     if (playerSelection === computerSelection) {
-        document.getElementsByClassName("results")[0].textContent = 'Draw!';
+        results[0].textContent = 'Draw!';
     } else if (playerSelection === "Rock" && computerSelection === "Scissors" ||
                playerSelection === "Paper" && computerSelection === "Rock" || 
                playerSelection === "Scissors" && computerSelection === "Paper") {
-            document.getElementsByClassName("results")[0].textContent = "You win! " + playerSelection + " beats " + computerSelection + "!";
+            results[0].textContent = "You win! " + playerSelection + " beats " + computerSelection + "!";
             playerScore++;
     } else {
-        document.getElementsByClassName("results")[0].textContent = "You lose " + computerSelection + " beats " + playerSelection + "!";
+        results[0].textContent = "You lose " + computerSelection + " beats " + playerSelection + "!";
         computerScore++;
     }
     roundResult(computerScore, playerScore);
     scores(computerScore, playerScore);
+    resetAll(computerScore, playerScore);
 }
 
 function scores(computerScore, playerScore) {
@@ -45,11 +62,6 @@ function roundResult(computerScore, playerScore) {
     }
 }
 
-function resetAll() {
-    document.getElementsByClassName("results")[0].textContent = '';
-    document.getElementsByClassName("winner")[0].textContent = '';
-}
-
 const rock = document.getElementById("Rock");
 rock.addEventListener("click", (evt) => playRound("Rock"));
 
@@ -59,9 +71,9 @@ paper.addEventListener("click", (evt) => playRound("Paper"));
 const scissors = document.getElementById("Scissors");
 scissors.addEventListener("click", (evt) => playRound("Scissors"));
 
-const results = document.getElementById("results");
+const results = document.getElementsByClassName("results");
 
-const reset = document.getElementById("reset");
-reset.addEventListener("click", resetAll);
+//const reset = document.getElementById("reset");
+//reset.addEventListener("click", resetAll);
 
 //document.getElementById("myBtn").addEventListener("click", playRound);
