@@ -14,13 +14,9 @@ function computerPlay() {
 
 function resetAll(computerScore, playerScore) {
     if (computerScore == 6) {
-        computerScore = 1;
-        playerScore = 0;
         document.getElementsByClassName("results")[0].textContent = '';
         document.getElementsByClassName("winner")[0].textContent = '';
     } else if (playerScore == 6) {
-        playerScore = 1;
-        computerScore = 0;
         document.getElementsByClassName("results")[0].textContent = '';
         document.getElementsByClassName("winner")[0].textContent = '';
     } else {
