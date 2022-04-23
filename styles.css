@@ -7,3 +7,16 @@ body {
     background-color: black;
     color: white;
 }
+
+.content {
+    border: solid red 2px;
+    height: 97vh;
+}
+
+.choices {
+    border: solid pink 2px;
+}
+
+.outcome {
+    border: solid blue 2px;
+}
