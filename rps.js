@@ -12,18 +12,6 @@ function computerPlay() {
     }
 }
 
-function resetAll(computerScore, playerScore) {
-    if (computerScore == 6) {
-        document.getElementsByClassName("results")[0].textContent = '';
-        document.getElementsByClassName("winner")[0].textContent = '';
-    } else if (playerScore == 6) {
-        document.getElementsByClassName("results")[0].textContent = '';
-        document.getElementsByClassName("winner")[0].textContent = '';
-    } else {
-        //do nothing
-    }
-}
-
 let computerScore = 0;
 let playerScore = 0;
 
@@ -42,7 +30,7 @@ function playRound(playerSelection) {
     }
     roundResult(computerScore, playerScore);
     scores(computerScore, playerScore);
-    resetAll(computerScore, playerScore);
+    resetAll();
 }
 
 function scores(computerScore, playerScore) {
@@ -55,6 +43,22 @@ function roundResult(computerScore, playerScore) {
         document.getElementsByClassName("winner")[0].textContent = "Computer wins!";
     } else if (playerScore == 5) {
         document.getElementsByClassName("winner")[0].textContent = "Player wins!";
+    }
+}
+
+function resetAll() {
+    if (computerScore == 5) {
+        computerScore = 1;
+        playerScore = 0;
+        document.getElementsByClassName("results")[0].textContent = '';
+        document.getElementsByClassName("winner")[0].textContent = '';
+    } else if (playerScore == 5) {
+        computerScore = 0;
+        playerScore = 1;
+        document.getElementsByClassName("results")[0].textContent = '';
+        document.getElementsByClassName("winner")[0].textContent = '';
+    } else {
+        //do nothing //
     }
 }
 
