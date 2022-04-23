@@ -18,7 +18,7 @@ let playerScore = 0;
 function playRound(playerSelection) {
     let computerSelection = computerPlay();
     if (playerSelection === computerSelection) {
-        results[0].textContent = 'Draw!';
+        results[0].textContent = 'Draw!'
     } else if (playerSelection === "Rock" && computerSelection === "Scissors" ||
                playerSelection === "Paper" && computerSelection === "Rock" || 
                playerSelection === "Scissors" && computerSelection === "Paper") {
@@ -47,18 +47,18 @@ function roundResult(computerScore, playerScore) {
 }
 
 function resetAll() {
-    if (computerScore == 5) {
-        computerScore = 1;
+    if (computerScore == 5 && results[0].textContent == 'Draw!' || playerScore == 5 && results[0].textContent == 'Draw!') {
+        computerScore = 0;
         playerScore = 0;
-        document.getElementsByClassName("results")[0].textContent = '';
         document.getElementsByClassName("winner")[0].textContent = '';
     } else if (playerScore == 5) {
         computerScore = 0;
-        playerScore = 1;
-        document.getElementsByClassName("results")[0].textContent = '';
+        playerScore = 0;
         document.getElementsByClassName("winner")[0].textContent = '';
-    } else {
-        //do nothing //
+    } else if (computerScore == 5) {
+        computerScore = 0;
+        playerScore = 0;
+        document.getElementsByClassName("winner")[0].textContent = '';
     }
 }
 

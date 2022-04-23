@@ -2,3 +2,8 @@ button#reset {
     background: none; 
     border: none; 
 }
+
+body {
+    background-color: black;
+    color: white;
+}
